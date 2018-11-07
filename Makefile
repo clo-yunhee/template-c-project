@@ -33,6 +33,8 @@ LDFLAGS +=
 SRC_DIR := src
 INC_DIR := inc
 BIN_DIR := bin
+
+# Hidden directories for intermediate files
 OBJ_DIR := .obj
 DEP_DIR := .dep
 
@@ -44,8 +46,8 @@ endif
 
 CFLAGS += -Wall -Wextra -Wno-sign-compare -Werror=implicit-function-declaration -pipe
 
-CFLAGS_Debug := -g -O2
-CFLAGS_Release := -O2 -Os -fPIC -fstack-protector-strong
+CFLAGS_Debug  := -g -O2
+CFLAGS_Release  := -O2 -Os -fPIC -fstack-protector-strong
 
 CFLAGS += $(CFLAGS_$(BUILD_TYPE))
 CFLAGS += -I$(INC_DIR)
@@ -100,7 +102,10 @@ $(TARGET): $(BIN_DIR)/$(TARGET)
 clean:
 	-rm -f $(O_FILES) $(D_FILES)
 
-re: clean all
+clean-dist: clean
+	-rm -f $(BIN_DIR)/$(TARGET)
+
+re: clean-dist all
 
 ##--- Building make rules
 
