@@ -28,7 +28,7 @@ Written by Chloé (Rika) Ichinose, under MIT License
 
 I don't really have any plan for contributors or anything like that, just... feel free to leave suggestions, things I should add, remove, or change, etc.
 
-When possible try to provide an [SSCCE](http://sscce.org)-ish example with your suggestion, whether that be a manual build, an wonky Makefile, or whatnot.
+When possible try to provide an [SSCCE](http://sscce.org)-ish example with your suggestion, whether that be a manual build, a wonky Makefile, or whatnot.
 
 ## How to use
 
