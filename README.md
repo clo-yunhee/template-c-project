@@ -11,7 +11,7 @@ Written by Chloé (Rika) Ichinose, under MIT License
 * Keeps intermediate files in hidden directories for faster incremental builds;
 * Customisable target name, directory names;
 * Customisable compiler and linker flags, keeps command line flags if provided (Argument conflicts aren't handled!);
-* Customisable additional Debug/Release flags with a BUILD_TYPE switch;
+* Customisable additional Debug/Release flags with a `BUILD_TYPE` switch;
 * Predefined `clean` rule to clean up intermediate files;
 * Predefined `clean-dist` rule to clean up all build files (binary and intermediate);
 * Predefined `re` rule to clean up and rebuild the whole project.
@@ -33,3 +33,5 @@ When possible try to provide an [SSCCE](http://sscce.org)-ish example with your 
 ## How to use
 
 (Section to be written)
+
+In the meantime, just look at the Makefile, the first two sections are the ones you want to edit for customisation. Hopefully they should be self-explanatory for the most part.
