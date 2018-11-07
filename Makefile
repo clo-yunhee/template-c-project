@@ -47,9 +47,14 @@ endif
 CFLAGS += -Wall -Wextra -Wno-sign-compare -Werror=implicit-function-declaration -pipe
 
 CFLAGS_Debug  := -g -O2
+LDFLAGS_Debug := 
+
 CFLAGS_Release  := -O2 -Os -fPIC -fstack-protector-strong
+LDFLAGS_Release :=
 
 CFLAGS += $(CFLAGS_$(BUILD_TYPE))
+LDFLAGS += $(LDFLAGS_$(BUILD_TYPE))
+
 CFLAGS += -I$(INC_DIR)
 
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEP_DIR)/$*.Td
