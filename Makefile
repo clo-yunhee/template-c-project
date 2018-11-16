@@ -116,7 +116,7 @@ re: clean-dist all
 
 $(BIN_DIR)/$(TARGET): $(O_FILES)
 	@mkdir -p $(BIN_DIR)
-	$(call link,$<,$@)
+	$(call link,$+,$@)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(DEP_DIR)/%.d
 	$(call compile,$<,$@)
