@@ -15,6 +15,7 @@ Written by Chloé (Rika) Ichinose, under MIT License
 * Predefined `clean` rule to clean up intermediate files;
 * Predefined `clean-dist` rule to clean up all build files (binary and intermediate);
 * Predefined `re` rule to clean up and rebuild the whole project.
+* Support for unit testing with the CUnit testing library.
 
 ## Future additions planned (maybe)
 
@@ -35,3 +36,5 @@ When possible try to provide an [SSCCE](http://sscce.org)-ish example with your 
 (Section to be written)
 
 In the meantime, just look at the Makefile, the first two sections are the ones you want to edit for customisation. Hopefully they should be self-explanatory for the most part.
+
+To build tests, add source files to the `tests` directory (configurable via the Makefile `TEST_DIR` variable). The build system by default uses and links statically against the CUnit library, precompiled with the template.
