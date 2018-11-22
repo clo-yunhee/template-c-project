@@ -49,12 +49,12 @@ endif
 
 ##--- Toolchain flags
 
-CFLAGS += -Wall -Wextra -Wno-sign-compare -Werror=implicit-function-declaration -pipe
+CFLAGS += -Wall -Wextra -Wno-sign-compare -Werror=implicit-function-declaration -pipe -fPIC -fstack-protector-strong
 
 CFLAGS_Debug  := -g -O2
 LDFLAGS_Debug := 
 
-CFLAGS_Release  := -O2 -Os -fPIC -fstack-protector-strong
+CFLAGS_Release  := -O2 -Os -Ofast
 LDFLAGS_Release :=
 
 CFLAGS += $(CFLAGS_$(BUILD_TYPE))
@@ -75,7 +75,7 @@ endef
 
 # Link object files $1 to binary $2
 define link
-	$(CC) $(LDFLAGS) $1 -o $2
+	$(CC) $1 -o $2 $(LDFLAGS)
 endef
 
 # Mirror directory structure from $1 to $2
@@ -147,5 +147,5 @@ $(BIN_DIR)/$(TEST_TARGET): $(TEST_C_FILES)
 ifeq ($(strip $(TEST_C_FILES)),)
 	$(error "No source files in $(TEST_DIR) directory")
 else
-	$(CC) $(TEST_FLAGS) -Icunit/include -Wl,cunit/lib/libcunit.a $+ -o $@
+	$(CC) $+ -o $@ $(TEST_FLAGS) -Icunit/include -Lcunit/lib -l:libcunit.a -lncurses
 endif
